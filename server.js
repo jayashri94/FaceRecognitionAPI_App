@@ -1,6 +1,5 @@
 const express = require("express")
 const bcrypt = require("bcrypt-nodejs")
-const app = express();
 const cors = require("cors")
 const knex = require('knex')
 
@@ -12,11 +11,10 @@ const image = require('./controllers/image');
 const db = knex({
     client:'pg',
     connection:{
-        connectionString:process.env.DATABASE_URL,
-        ssl:true
+        connectionString:process.env.DATABASE_URL
     }
 });
-
+const app = express();
 app.use(cors());
 app.use(express.json());
 
